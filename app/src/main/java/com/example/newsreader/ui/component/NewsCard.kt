@@ -9,9 +9,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.newsreader.data.model.Article
+import com.example.newsreader.data.model.Source
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -95,7 +97,48 @@ private fun formatDate(dateString: String): String {
 
         val formatter = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
         date?.let { formatter.format(it) } ?: dateString
-    } catch (e: Exception) {
+    } catch (_: Exception) {
         dateString
     }
 }
+
+@Preview(showBackground = true)
+@Composable
+fun NewsCardPreview() {
+    MaterialTheme {
+        NewsCard(
+            article = Article(
+                source = Source(id = "techcrunch", name = "TechCrunch"),
+                author = "John Doe",
+                title = "Breaking: New AI Technology Revolutionizes Mobile Development",
+                description = "A groundbreaking new artificial intelligence system has been developed that promises to transform how developers create mobile applications, making the process faster and more efficient than ever before.",
+                url = "https://example.com/article",
+                urlToImage = "https://picsum.photos/seed/news1/800/600",
+                publishedAt = "2025-11-03T10:30:00Z",
+                content = "Full article content..."
+            ),
+            onClick = { /* Preview action */ }
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun NewsCardWithoutImagePreview() {
+    MaterialTheme {
+        NewsCard(
+            article = Article(
+                source = Source(id = "bbc-news", name = "BBC News"),
+                author = "Jane Smith",
+                title = "Global Markets Show Strong Recovery Signs",
+                description = "Financial markets worldwide are showing positive indicators as economic conditions improve across major economies.",
+                url = "https://example.com/article2",
+                urlToImage = null,
+                publishedAt = "2025-11-02T15:45:00Z",
+                content = "Full article content..."
+            ),
+            onClick = { /* Preview action */ }
+        )
+    }
+}
+

@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -52,5 +53,38 @@ fun ErrorView(
         Button(onClick = onRetry) {
             Text("Retry")
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ErrorViewPreview() {
+    MaterialTheme {
+        ErrorView(
+            message = "Unable to fetch news articles. Please check your internet connection.",
+            onRetry = { /* Preview action */ }
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ErrorViewShortMessagePreview() {
+    MaterialTheme {
+        ErrorView(
+            message = "Network error",
+            onRetry = { /* Preview action */ }
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ErrorViewLongMessagePreview() {
+    MaterialTheme {
+        ErrorView(
+            message = "An unexpected error occurred while trying to load the news articles. This might be due to a temporary server issue or connection problem. Please try again in a few moments.",
+            onRetry = { /* Preview action */ }
+        )
     }
 }

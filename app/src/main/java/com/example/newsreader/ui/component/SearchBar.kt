@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -59,3 +60,40 @@ fun SearchBar(
         )
     )
 }
+
+@Preview(showBackground = true)
+@Composable
+fun SearchBarEmptyPreview() {
+    MaterialTheme {
+        SearchBar(
+            query = "",
+            onQueryChange = { },
+            onClear = { }
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SearchBarWithTextPreview() {
+    MaterialTheme {
+        SearchBar(
+            query = "Android Development",
+            onQueryChange = { },
+            onClear = { }
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SearchBarInteractivePreview() {
+    MaterialTheme {
+        SearchBar(
+            query = "Jetpack Compose",
+            onQueryChange = { },
+            onClear = { }
+        )
+    }
+}
+
