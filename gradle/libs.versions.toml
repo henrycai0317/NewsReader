@@ -7,7 +7,8 @@ junitVersion = "1.3.0"
 espressoCore = "3.7.0"
 lifecycleRuntimeKtx = "2.9.4"
 activityCompose = "1.11.0"
-composeBom = "2024.09.00"
+composeBom = "2024.10.01"
+composeMaterial = "1.7.5"
 #Hilt
 hilt = "2.51"
 androidxHilt = "1.2.0"
@@ -18,6 +19,7 @@ navigationCompose = "2.0.21"
 # Network
 retrofit = "2.11.0"
 okhttp = "4.12.0"
+coil = "2.7.0"
 kotlinxSerialization = "1.7.3"
 retrofitSerializationConverter = "1.0.0"
 # Coroutines
@@ -38,6 +40,7 @@ androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "u
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-material = { group = "androidx.compose.material", name = "material", version.ref = "composeMaterial" }
 #Hilt
 hilt-android = {group = "com.google.dagger", name = "hilt-android", version.ref = "hilt"}
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
@@ -51,6 +54,7 @@ retrofit-converter-gson = { group = "com.squareup.retrofit2", name = "converter-
 retrofit-kotlinx-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitSerializationConverter" }
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 # Coroutines
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 

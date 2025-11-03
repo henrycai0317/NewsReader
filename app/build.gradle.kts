@@ -21,6 +21,15 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // 從 local.properties 讀取 API Key
+        val localProperties = org.jetbrains.kotlin.konan.properties.Properties()
+        val localPropertiesFile = rootProject.file("local.properties")
+        if (localPropertiesFile.exists()) {
+            localPropertiesFile.inputStream().use { localProperties.load(it) }
+        }
+        val newsApiKey = localProperties.getProperty("NEWS_API_KEY") ?: ""
+        buildConfigField("String", "NEWS_API_KEY", "\"$newsApiKey\"")
     }
 
     buildTypes {
@@ -41,6 +50,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -53,6 +63,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -73,4 +84,5 @@ dependencies {
     implementation(libs.okhttp.logging)
     // Coroutines
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.coil.compose)
 }
